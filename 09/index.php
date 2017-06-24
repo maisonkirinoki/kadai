@@ -1,3 +1,9 @@
+<?php
+session_start();
+include("functions.php");
+sessChk();
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -30,6 +36,10 @@
 		</fieldset>
 	</form>
 	<p><a href="select.php">記録一覧を見る</a></p>
+
+	<form name="form2" action="logout.php" method="post">
+		<input type="submit" value="ログアウト">
+	</form>
 
 </body>
 </html>

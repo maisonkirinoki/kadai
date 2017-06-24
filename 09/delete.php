@@ -1,14 +1,12 @@
 <?php
 
+include("functions.php");
+
 //GET
 $id = $_GET["id"];
 
 //DB接続
-try {
-	$pdo = new PDO('mysql:dbname=gs_db38;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-	exit('データベースに接続できませんでした。'.$e->getMessage());
-}
+$pdo = db_connect();
 
 //DELETE
 $stmt = $pdo->prepare("DELETE FROM gs_bm_table WHERE id=:id");

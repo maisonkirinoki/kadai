@@ -1,14 +1,14 @@
 <?php
 
+session_start();
+include("functions.php");
+sessChk();
+
 //GETでidの値を取得
 $id = $_GET["id"];
 
 //DB接続
-try {
-  $pdo = new PDO('mysql:dbname=gs_db38;charset=utf8;host=localhost','root','');
-} catch (PDOException $e) {
-  exit('データベースに接続できませんでした。'.$e->getMessage());
-}
+$pdo = db_connect();
 
 //指定のテーブルからデータを取得
 $stmt = $pdo->prepare("SELECT * FROM gs_user_table WHERE id=:id");
